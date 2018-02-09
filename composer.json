@@ -33,7 +33,7 @@
                 "Ouronghuang\\GeetestButton\\GeetestButtonServiceProvider"
             ],
             "aliases": {
-                "GeetestButton": "Ouronghuang\\GeetestButton\\GeetestButton"
+                "GeetestButton": "Ouronghuang\\GeetestButton\\Facade"
             }
         }
     }

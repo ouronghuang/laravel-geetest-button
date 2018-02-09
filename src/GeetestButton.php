@@ -6,6 +6,6 @@ class GeetestButton
 {
     public function getName()
     {
-        return 'GeetestButton';
+        return 'GeetestButton11';
     }
 }
