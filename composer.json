@@ -1,0 +1,40 @@
+{
+    "name": "ouronghuang/laravel-geetest-button",
+    "description": "Laravel geetest button",
+    "keywords": [
+        "laravel",
+        "geetest"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ouronghuang",
+            "email": "512574561@qq.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ouronghuang\\GeetestButton\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ouronghuang\\GeetestButton\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Ouronghuang\\GeetestButton\\GeetestButtonServiceProvider"
+            ],
+            "aliases": {
+                "GeetestButton": "Ouronghuang\\GeetestButton\\GeetestButton"
+            }
+        }
+    }
+}
