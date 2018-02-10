@@ -15,22 +15,18 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "php": ">=7.0"
+        "php": ">=7.0",
+        "jenssegers/agent": "~2.6.0"
     },
     "autoload": {
         "psr-4": {
             "Ouronghuang\\GeetestButton\\": "src/"
         }
     },
-    "autoload-dev": {
-        "psr-4": {
-            "Ouronghuang\\GeetestButton\\Tests\\": "tests/"
-        }
-    },
     "extra": {
         "laravel": {
             "providers": [
-                "Ouronghuang\\GeetestButton\\GeetestButtonServiceProvider"
+                "Ouronghuang\\GeetestButton\\ServiceProvider"
             ],
             "aliases": {
                 "GeetestButton": "Ouronghuang\\GeetestButton\\Facade"
