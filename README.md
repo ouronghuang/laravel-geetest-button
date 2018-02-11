@@ -14,7 +14,7 @@
 #### 1. 安装 laravel-geetest-button
 
 ```Shell
-    composer require "ouronghuang/laravel-geetest-button:dev-master"
+    composer require ouronghuang/laravel-geetest-button
 ```
 
 #### 2. 发布配置文件与前端资源文件
