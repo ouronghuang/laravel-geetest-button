@@ -189,6 +189,14 @@ class GeetestButton
             'geetest_seccode',
         ];
 
-        return app('request')->only($allow);
+        $request = app('request');
+
+        $data = [];
+
+        foreach ($allow as $v) {
+            $data[$v] = $request->input($v, null);
+        }
+
+        return $data;
     }
 }
