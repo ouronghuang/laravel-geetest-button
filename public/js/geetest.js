@@ -1,9 +1,9 @@
 var handlerEmbed = function (captchaObj) {
     var item = $('.geetest-captcha');
-    var wait = item.children('wait');
-    var notice = item.children('notice');
+    var wait = item.children('.wait');
+    var notice = item.children('.notice');
 
-    $('button[type="submit"]').click(function (e) {
+    $('[type="submit"]').click(function (e) {
         var validate = captchaObj.getValidate();
         if (!validate) {
             notice.removeClass('hide').addClass('show');
