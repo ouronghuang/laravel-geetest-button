@@ -1,0 +1,7 @@
+.geetest-captcha .show {
+    display: block;
+}
+
+.geetest-captcha .hide {
+    display: none;
+}

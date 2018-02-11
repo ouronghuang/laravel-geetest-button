@@ -16,11 +16,12 @@ class ServiceProvider extends LaravelServiceProvider
     public function register()
     {
         $this->configure();
+        $this->offerPublishing();
         $this->registerServices();
     }
 
     /**
-     * 设置配置信息
+     * 合并配置信息
      *
      * @param  void
      * @return void
@@ -30,6 +31,20 @@ class ServiceProvider extends LaravelServiceProvider
         $this->mergeConfigFrom(
             __DIR__ . '/../config/geetest.php', 'geetest'
         );
+    }
+
+    /**
+     * 发布配置信息
+     *
+     * @return void
+     */
+    protected function offerPublishing()
+    {
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__ . '/../config/geetest.php' => config_path('geetest.php'),
+            ], 'geetest-config');
+        }
     }
 
     /**
@@ -66,16 +81,17 @@ class ServiceProvider extends LaravelServiceProvider
     protected function registerRoutes()
     {
         Route::group([
-            'prefix' => config('geetest.uri', 'geetest'),
+            'prefix' => config('geetest.prefix', 'geetest'),
+            'as' => config('geetest.as', 'geetest'),
             'namespace' => 'Ouronghuang\GeetestButton\Http\Controllers',
-            'middleware' => config('geetest.middleware', 'web'),
+            'middleware' => config('geetest.middleware', ['web']),
         ], function () {
             $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
         });
     }
 
     /**
-     * 手动发布文件
+     * 发布前端资源文件
      *
      * @param  void
      * @return void
@@ -83,8 +99,8 @@ class ServiceProvider extends LaravelServiceProvider
     protected function defineAssetPublishing()
     {
         $this->publishes([
-            __DIR__ . '/../config/geetest.php' => config_path('geetest.php'),
-        ], 'geetest');
+            __DIR__ . '/../public' => public_path('vendor/geetest'),
+        ], 'geetest-assets');
     }
 
     /**
@@ -95,7 +111,7 @@ class ServiceProvider extends LaravelServiceProvider
      */
     protected function validatorExtension()
     {
-        $this->app['validator']->extend('captcha', function ($attribute, $value, $parameters) {
+        $this->app['validator']->extend(config('geetest.captcha', 'captcha'), function ($attribute, $value, $parameters) {
             return app(GeetestButton::class)->verification();
         });
     }
