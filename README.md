@@ -11,7 +11,7 @@
 
 ## 快速开始
 
-####1. 安装 laravel-geetest-button
+#### 1. 安装 laravel-geetest-button
 
 ```Shell
     composer require "ouronghuang/laravel-geetest-button:dev-master"
@@ -133,14 +133,14 @@
 
 #### 1. 配置文件 `config/geetest.php`
 
-| 配置 | 描述 | 配置值 |
-| --- | --- | --- |
-| `id` | 对应验证的 `id` | 请在 [极验后台](https://account.geetest.com) 获取 |
-| `key` | 对应验证的 `key` | 请在 [极验后台](https://account.geetest.com) 获取 |
-| `prefix` | 路由前缀 | 默认：`''`，如果与其它包冲突则可以修改此项 |
-| `as` | 路由别名前缀 | 默认：`'geetest'`，一般不需要改动 |
-| `middleware` | 路由中间件 | 默认：`['web']`，一般不需要改动 |
-| `captcha` | 表单验证规则名称 | 默认：`'captcha'`，如果与其它包冲突则可以修改此项 |
+| 配置 | 描述 | 数据类型 | 配置值 |
+| --- | --- | --- | --- |
+| `id` | 对应验证的 `id` | `string` | 请在 [极验后台](https://account.geetest.com) 获取 |
+| `key` | 对应验证的 `key` | `string` | 请在 [极验后台](https://account.geetest.com) 获取 |
+| `prefix` | 路由前缀 | `string` | 默认：`''`，如果与其它包冲突则可以修改此项 |
+| `as` | 路由别名前缀 | `string` | 默认：`'geetest'`，一般不需要改动 |
+| `middleware` | 路由中间件 | `array` | 默认：`['web']`，一般不需要改动 |
+| `captcha` | 表单验证规则名称 | `string` | 默认：`'captcha'`，如果与其它包冲突则可以修改此项 |
 
 说明：
 
