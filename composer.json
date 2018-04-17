@@ -1,19 +1,19 @@
 {
-    "name": "ouronghuang/laravel-geetest-button",
-    "description": "Laravel geetest button",
+    "name": "orh/laravel-geetest-button",
+    "description": "Laravel geetest button v3.0.0, Laravel 极验证行为验证 v3.0.0",
     "keywords": [
         "laravel",
-        "geetest"
+        "geetest",
+        "极验证"
     ],
     "type": "library",
     "license": "MIT",
     "authors": [
         {
-            "name": "ouronghuang",
+            "name": "orh",
             "email": "512574561@qq.com"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
         "php": ">=7.0",
         "jenssegers/agent": "~2.6.0"
