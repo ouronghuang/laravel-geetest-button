@@ -73,7 +73,7 @@ class ServiceProvider extends LaravelServiceProvider
     }
 
     /**
-     * 注册路由
+     * 注册视图
      *
      * @param  void
      * @return void

@@ -19,23 +19,20 @@
 #### 1. 安装 laravel-geetest-button
 
 ```Shell
-    composer require ouronghuang/laravel-geetest-button
+composer require orh/laravel-geetest-button
 ```
 
 #### 2. 发布配置文件与前端资源文件
 
 ```Shell
-    php artisan vendor:publish --provider="Ouronghuang\GeetestButton\ServiceProvider"
+php artisan vendor:publish --provider="Ouronghuang\GeetestButton\ServiceProvider"
 ```
 
 #### 3. 请在 `.env` 和 `.env.example` 文件添加以下配置
 
 ```env
-    .
-    .
-    .
-    GEETEST_ID=
-    GEETEST_KEY=
+GEETEST_ID=
+GEETEST_KEY=
 ```
 
 注意：id 与 key 请在 [极验后台](https://account.geetest.com) 获取。
@@ -43,18 +40,10 @@
 #### 4. 在要需要验证的页面引入以下文件
 
 ```HTML
-    .
-    .
-    .
-    <link href="{{ asset('vendor/geetest/css/gt.css') }}" rel="stylesheet"/>
-    .
-    .
-    .
-    <script src="{{ asset('vendor/geetest/js/gt.js') }}"></script>
-    <script src="{{ asset('vendor/geetest/js/geetest.js') }}"></script>
-    .
-    .
-    .   
+<link href="{{ asset('vendor/geetest/css/gt.css') }}" rel="stylesheet"/>
+
+<script src="{{ asset('vendor/geetest/js/gt.js') }}"></script>
+<script src="{{ asset('vendor/geetest/js/geetest.js') }}"></script>  
 ```
 
 注意：
@@ -65,25 +54,19 @@
 #### 5. 在相应的表单加入以下代码
 
 ```HTML
-    .
-    .
-    .
-    <div class="form-group geetest-captcha">
-        <label for="captcha">行为验证</label>
-        <div id="embed-captcha"></div>
-        <div class="wait">
-            正在加载验证码
-            <i class="fa fa-spin fa-spinner" aria-hidden="true"></i>
-        </div>
-        <div class="notice hide text-danger">
-            <i class="fa fa-times-circle" aria-hidden="true"></i>
-            请先完成验证
-        </div>
-        <input type="hidden" id="captcha" name="captcha">
+<div class="form-group geetest-captcha">
+    <label for="captcha">行为验证</label>
+    <div id="embed-captcha"></div>
+    <div class="wait">
+        正在加载验证码
+        <i class="fa fa-spin fa-spinner" aria-hidden="true"></i>
     </div>
-    .
-    .
-    .
+    <div class="notice hide text-danger">
+        <i class="fa fa-times-circle" aria-hidden="true"></i>
+        请先完成验证
+    </div>
+    <input type="hidden" id="captcha" name="captcha">
+</div>
 ```
 
 注意：
@@ -94,19 +77,13 @@
 也可以使用如下基本结构
 
 ```HTML
-    .
-    .
-    .
-    <div class="geetest-captcha">
-        <label for="captcha">行为验证</label>
-        <div id="embed-captcha"></div>
-        <div class="wait">正在加载验证码...</div>
-        <div class="notice hide text-danger">请先完成验证</div>
-        <input type="hidden" id="captcha" name="captcha">
-    </div>
-    .
-    .
-    .
+<div class="geetest-captcha">
+    <label for="captcha">行为验证</label>
+    <div id="embed-captcha"></div>
+    <div class="wait">正在加载验证码...</div>
+    <div class="notice hide text-danger">请先完成验证</div>
+    <input type="hidden" id="captcha" name="captcha">
+</div>
 ```
 
 注意：
@@ -118,18 +95,10 @@
 #### 6. 在服务端表单验证中加入以下规则
 
 ```PHP
-    .
-    .
-    .
-    $this->validate($request, [
-        .
-        .
-        .
-        'captcha' => 'captcha',
-    ]);
-    .
-    .
-    .
+$this->validate($request, [
+    ...
+    'captcha' => 'captcha',
+]);
 ```
 
 至此，安装完成。
@@ -152,63 +121,35 @@
 * 如果修改了 `prefix` 的值为 `test`，则需要修改 `public/vendor/geetest/js/geetest.js` 的
 
 ```JavaScript
-    .
-    .
-    .
-    $.ajax({
-        url: '/captcha?t=' + (new Date()).getTime(),
-        .
-        .
-        .
-    });
+$.ajax({
+    url: '/captcha?t=' + (new Date()).getTime()
+});
 ```
 
 为
 
 ```JavaScript
-    .
-    .
-    .
-    $.ajax({
-        url: '/test/captcha?t=' + (new Date()).getTime(),
-        .
-        .
-        .
-    });
+$.ajax({
+    url: '/test/captcha?t=' + (new Date()).getTime()
+});
 ```
 
 * 如果修改了 `captcha` 的值为 `test`，则需要修改相应的表单验证规则
 
 ```PHP
-    .
-    .
-    .
-    $this->validate($request, [
-        .
-        .
-        .
-        'captcha' => 'captcha',
-    ]);
-    .
-    .
-    .
+$this->validate($request, [
+    ...
+    'captcha' => 'captcha',
+]);
 ```
 
 为
 
 ```PHP
-    .
-    .
-    .
-    $this->validate($request, [
-        .
-        .
-        .
-        'captcha' => 'test',
-    ]);
-    .
-    .
-    .
+$this->validate($request, [
+    ...
+    'captcha' => 'test',
+]);
 ```
 
 #### 2. 前端资源文件

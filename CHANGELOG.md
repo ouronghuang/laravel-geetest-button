@@ -1,5 +1,11 @@
 # Laravel Geetest Button 更新日志
 
+## v1.0.4(2018-04-18)
+
+* 修正包名称不正确问题
+
+* 修正 README.md 格式
+
 ## v1.0.3(2018-04-17)
 
 * 更改 composer 包名
